@@ -4,9 +4,9 @@
 ## Integrantes
 
 Nombre completo | Código
-Estudiante1 | 123456
-Estudiante2 | 123457
-Estudiante3 | 123458
+Juan David Camacho | 2266292
+Wilson Andres Martinez | 2266319
+Juan Gabriel Paredes | 2266183
 
 ## Descripción del taller
 
