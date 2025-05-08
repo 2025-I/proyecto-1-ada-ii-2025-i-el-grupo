@@ -73,3 +73,42 @@ def palindromo_even(l, izquierda_centro):
         izquierda -= 1
         derecha += 1
     return palindromo
+
+def palindromo_voraz(a, b, c):
+    subsecuencia = []
+    subsecuencia.append(a[b])
+    camino_b = b
+    camino_c = c
+
+    while camino_b < camino_c:
+        encuentra = False
+
+        for k in range(camino_b, camino_c + 1):
+            for l in range(k + 1, camino_c + 1):
+                if a[k] == a[l]:
+                    subsecuencia.append(a[k])
+                    camino_b = k + 1
+                    camino_c = l - 1
+                    encuentra = True
+                    break
+
+            if encuentra:
+                break
+        
+        if not encuentra:
+            break
+    
+    if camino_b == camino_c:
+        en_medio = a[camino_b]
+    else:
+        en_medio =""
+
+    sub_atras = subsecuencia.copy()
+    sub_atras.reverse()
+
+    completo_palin = ''.join(subsecuencia) + en_medio + ''.join(sub_atras)
+
+    if es_palindromo(completo_palin):
+        return completo_palin
+    else:
+        return a[b] + a[b]
