@@ -54,7 +54,8 @@ def test_dp_performance(n, reps, max_avg):
 
 @pytest.mark.parametrize("n", [5000, 10000, 50000])
 def test_dp_extra_large(n):
-    """Se marca xfail porque no se espera que terminen rápido en CI."""
+    """Ahora debe pasar para todos los tamaños sin colgar el CI."""
     s = ''.join(random.choices(string.ascii_lowercase, k=n))
-    subseqs, length = subsecuencia_larga_dinamica(s)
-    assert all(p == p[::-1] for p in subseqs)
+    subs, length = subsecuencia_larga_dinamica(s)
+    assert all(p == p[::-1] for p in subs)
+    assert length >= 1
