@@ -12,14 +12,7 @@ Formalmente, sea $T = (V,E)$ un árbol enraizado con:
 * $E$ aristas padre→hijo.
 * Peso $c(v_i) \in \mathbb{N}$ por nodo.
 
-Encontrar
 
-> $$(
-> \displaystyle \max_{U \subseteq V}\n> \sum_{v \in U} c(v)
-> \\)
->
-> sujeto a que para ninguna \((u,w) \in E\) ambos estén en \(U\).
-> $$
 
 ## 2. Formato de entrada y salida
 
