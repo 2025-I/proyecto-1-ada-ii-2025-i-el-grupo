@@ -37,10 +37,11 @@ jobs:
         run: python -m compileall .
 
       - name: set PYTHONPATH
-        run: |
-          echo "PYTHONPATH=$PWD/src" >> $GITHUB_ENV
+        run: echo "PYTHONPATH=$PWD/src" >> $GITHUB_ENV
+
       - name: Run tests
-        run: |
-          pytest --maxfail=1 -q
-      
+        env:
+          PYTHONPATH: ${{ env.PYTHONPATH }}
+        run: pytest --maxfail=1 -q
+          
 
