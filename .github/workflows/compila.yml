@@ -36,7 +36,12 @@ jobs:
       - name: Check syntax (compile)
         run: python -m compileall .
 
-      - name: Run tests
+      - name: set PYTHONPATH
         run: |
           echo "PYTHONPATH=$PWD/src" >> $GITHUB_ENV
+
+      - name: Run tests
+        run: |
           pytest --maxfail=1 -q
+      
+      
