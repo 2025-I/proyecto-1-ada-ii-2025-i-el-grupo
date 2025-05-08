@@ -45,3 +45,31 @@ def obtener_niveles_arbol(arbol, raiz):
                 cola.append((hijo, nivel + 1))
     
     return niveles
+
+def fiesta_voraz(num_empleados, super_matrix, calificacion):
+    arbol = supervision_arbol(super_matrix)
+    raiz = raiz_encontrada(arbol)
+    
+
+    invitados = [0] * num_empleados
+    
+
+    niveles = obtener_niveles_arbol(arbol, raiz)
+    
+
+    for nivel in reversed(niveles):
+        for nodo in nivel:
+   
+            suma_hijos = sum(calificacion[hijo] for hijo in arbol[nodo] if invitados[hijo] == 1)
+
+            if calificacion[nodo] > suma_hijos:
+            
+                for hijo in arbol[nodo]:
+                    invitados[hijo] = 0
+                
+                invitados[nodo] = 1
+    
+
+    total = sum(calificacion[i] for i in range(num_empleados) if invitados[i] == 1)
+    
+    return invitados, total
