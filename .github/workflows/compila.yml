@@ -1,4 +1,4 @@
-name: Compile & Test
+name: CI – Compile & Test
 
 on:
   push:
@@ -36,12 +36,5 @@ jobs:
       - name: Check syntax (compile)
         run: python -m compileall .
 
-      - name: set PYTHONPATH
-        run: echo "PYTHONPATH=$PWD/src" >> $GITHUB_ENV
-
       - name: Run tests
-        env:
-          PYTHONPATH: ${{ env.PYTHONPATH }}
         run: pytest --maxfail=1 -q
-          
-
