@@ -51,7 +51,7 @@ def test_dp_performance(n, reps, max_avg):
 
 
 #Tamaños extra grandes
-
+@pytest.mark.timeout(5)
 @pytest.mark.parametrize("n", [5000, 10000, 50000])
 @pytest.mark.xfail(reason="DP O(n²) no factible en tiempo razonable para n muy grandes")
 def test_dp_extra_large(n):
