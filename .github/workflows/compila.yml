@@ -38,6 +38,5 @@ jobs:
 
       - name: Run tests
         run: |
-          export PYTHONPATH="${{ github.workspace }}/src"
+          echo "PYTHONPATH=$PWD/src" >> $GITHUB_ENV
           pytest --maxfail=1 -q
-  
