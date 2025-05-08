@@ -37,7 +37,4 @@ jobs:
         run: python -m compileall .
 
       - name: Run tests
-        run: |
-          export PYTHONPATH="${{ github.workspace }}/src"
-          pytest --maxfail=1 -q
-  
+        run: pytest --maxfail=1 -q
